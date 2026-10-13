@@ -25,11 +25,26 @@ roda `rea list-browser-targets`, `inspect-web-page`, `analyze-web-bundle` e
 
 Variáveis opcionais: `CHROME=/caminho/do/chrome`, `CDP_PORT=9222`.
 
-## 2. Montar a cópia de estudo
+## 2. Cópia de estudo (`site/`)
 
-A partir da evidência, reproduza **estrutura e técnica**: grid, seções,
-hierarquia de títulos, espaçamentos, comportamento do menu, animações e
-responsividade.
+Duas partes foram estudadas e reconstruídas com a marca fictícia **Órbita**:
+
+- **Quadro de gerenciamento** (`#quadro`): mini-app funcional com tabela em
+  grupos (responsável, cronograma, status, prazo), visão Kanban, edição inline,
+  arrastar e soltar, filtros e dados salvos no navegador.
+- **Seção de controle** (`#controle`): título grande e grade 3×2 no desktop,
+  acordeão no celular.
+
+```bash
+python3 scripts/montar.py                              # gera site/index.html
+python3 -m http.server 8000 --directory site           # abre em http://127.0.0.1:8000
+```
+
+Cada seção é um par `site/partials/NN-nome.html` + `site/css/sections/NN-nome.css`
+(+ `site/js/sections/NN-nome.js`); a base visual fica em `site/css/base.css`.
+
+O que foi reproduzido é **estrutura e técnica**: grid, escala tipográfica,
+espaçamentos, cores de status e comportamento.
 
 Não copie o que é deles: logo, nome, ilustrações, fotos, vídeos e textos de
 marketing. Use textos próprios, uma marca fictícia e imagens de placeholder.

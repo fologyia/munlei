@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 32" role="img" aria-label="Órbita">
+  <circle cx="16" cy="16" r="7" fill="#6161ff"/>
+  <ellipse cx="16" cy="16" rx="14" ry="6" fill="none" stroke="#ff5ac4" stroke-width="2.4" transform="rotate(-28 16 16)"/>
+  <circle cx="28.3" cy="9.5" r="2.6" fill="#fdab3d"/>
+  <text x="38" y="23" font-family="Poppins, Arial, sans-serif" font-size="20" font-weight="600" fill="#000">órbita</text>
+</svg>
