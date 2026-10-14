@@ -19,14 +19,25 @@
     }));
   };
 
-  // Troca o elemento do título mantendo classe, id e filhos.
+  // Troca o elemento do título mantendo classe, id e filhos. Se ele estava com
+  // o foco (girar o celular ou mudar o zoom com um botão focado), o foco passa
+  // para o novo elemento em vez de cair no <body> e o próximo Tab segue dali.
+  // Um <span> só recebe foco por script com tabindex="-1", que sai no blur.
   const trocar = (el, tag) => {
     if (el.localName === tag) return el;
+    const tinhaFoco = document.activeElement === el;
     const novo = document.createElement(tag);
     novo.className = el.className;
     novo.id = el.id;
     novo.append(...el.childNodes);
     el.replaceWith(novo);
+    if (tinhaFoco) {
+      if (tag === 'span') {
+        novo.tabIndex = -1;
+        novo.addEventListener('blur', () => novo.removeAttribute('tabindex'), { once: true });
+      }
+      novo.focus(); // rola só se o título saiu da tela (scroll-margin respeita o topo)
+    }
     return novo;
   };
 
@@ -53,7 +64,9 @@
   if (mobile.addEventListener) mobile.addEventListener('change', aoTrocarModo);
   else mobile.addListener(aoTrocarModo);
 
+  // A classe vem por último: ela diz ao CSS que os <button> já existem. Se algo
+  // falhar antes, a rede de segurança do CSS devolve os painéis à mostra.
   semTransicao();
-  secao.classList.add('controle--acordeao');
   sincronizar();
+  secao.classList.add('controle--acordeao');
 })();

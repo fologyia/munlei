@@ -1,0 +1,90 @@
+<section id="quadro" class="section quadro" aria-labelledby="quadro-titulo">
+  <div class="container container--xl">
+    <header class="quadro__cabecalho reveal">
+      <p class="eyebrow">Quadro de gerenciamento</p>
+      <h2 id="quadro-titulo" class="h2">Cada tarefa no lugar certo, à vista da equipe</h2>
+      <p class="lead quadro__lead">Um quadro de verdade para você experimentar: renomeie tarefas, distribua responsáveis, ajuste prazos e arraste itens entre grupos. As cores contam o andamento num relance — e tudo fica salvo neste navegador.</p>
+    </header>
+
+    <div class="quadro__palco">
+      <div class="qd-app">
+        <aside class="qd-lateral" aria-hidden="true">
+          <span class="qd-lateral__marca">
+            <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="6.5" fill="#6161ff"/><ellipse cx="16" cy="16" rx="13" ry="5.5" fill="none" stroke="#ff5ac4" stroke-width="2.2" transform="rotate(-28 16 16)"/><circle cx="27.3" cy="10" r="2.4" fill="#fdab3d"/></svg>
+          </span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><path d="M3.5 9.2 10 3.8l6.5 5.4V16a1 1 0 0 1-1 1H12v-4.2H8V17H4.5a1 1 0 0 1-1-1z"/></svg></span>
+          <span class="qd-lateral__ico is-ativo"><svg class="qd-ico" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8.5h14M8 8.5V16"/></svg></span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><path d="M5.5 13.5V9a4.5 4.5 0 0 1 9 0v4.5l1.5 2h-12zM8.5 17.5h3"/></svg></span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><rect x="3" y="4.5" width="14" height="12.5" rx="2"/><path d="M3 8.5h14M7 3v3M13 3v3"/></svg></span>
+          <span class="qd-lateral__sep"></span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><circle cx="8" cy="7.5" r="2.8"/><path d="M3 16.5a5 5 0 0 1 10 0M13.2 5a2.6 2.6 0 0 1 0 5M14.5 12.2a4.6 4.6 0 0 1 2.7 4.3"/></svg></span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><path d="M4 6.5h7M15 6.5h1M4 13.5h1.5M9.5 13.5H16"/><circle cx="13" cy="6.5" r="2"/><circle cx="7.5" cy="13.5" r="2"/></svg></span>
+        </aside>
+
+        <div class="qd-painel">
+          <div class="qd-topo">
+            <h3 class="qd-titulo"><button type="button" class="qd-titulo-btn" data-acao="editar-titulo" data-k="titulo" aria-label="Festival de oficinas, editar título do quadro">Festival de oficinas</button></h3>
+            <div class="qd-equipe" id="qd-equipe"></div>
+          </div>
+
+          <div class="qd-abas" role="tablist" aria-label="Visões do quadro">
+            <button type="button" role="tab" id="qd-aba-tabela" class="qd-aba" aria-selected="true" aria-controls="qd-painel-tabela" data-visao="tabela" data-k="aba:tabela">
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8.5h14M8 8.5V16"/></svg>Tabela
+            </button>
+            <button type="button" role="tab" id="qd-aba-kanban" class="qd-aba" aria-selected="false" aria-controls="qd-painel-kanban" data-visao="kanban" data-k="aba:kanban" tabindex="-1">
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="3" y="4" width="3.6" height="12" rx="1.2"/><rect x="8.2" y="4" width="3.6" height="8" rx="1.2"/><rect x="13.4" y="4" width="3.6" height="10" rx="1.2"/></svg>Kanban
+            </button>
+          </div>
+
+          <div class="qd-ferramentas" role="group" aria-label="Ferramentas do quadro">
+            <button type="button" class="qd-btn qd-btn--primario qd-nova" data-acao="nova-tarefa" data-k="nova-tarefa">
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4.5v11M4.5 10h11"/></svg>Nova tarefa
+            </button>
+            <div class="qd-campo-ico qd-busca">
+              <label for="qd-busca" class="sr-only">Buscar tarefas</label>
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="5.2"/><path d="m13 13 3.8 3.8"/></svg>
+              <input id="qd-busca" class="qd-input" type="search" placeholder="Buscar tarefa ou pessoa" autocomplete="off" data-k="busca">
+            </div>
+            <div class="qd-campo-ico qd-filtro">
+              <label for="qd-f-pessoa" class="sr-only">Filtrar por pessoa</label>
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="7.2" r="3"/><path d="M4.6 16.5a5.4 5.4 0 0 1 10.8 0"/></svg>
+              <select id="qd-f-pessoa" class="qd-select" data-k="f-pessoa">
+                <option value="">Pessoa: todas</option>
+              </select>
+            </div>
+            <div class="qd-campo-ico qd-filtro">
+              <label for="qd-f-status" class="sr-only">Filtrar por status</label>
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 5h13l-5 6.2V16l-3-1.5v-3.3z"/></svg>
+              <select id="qd-f-status" class="qd-select" data-k="f-status">
+                <option value="">Status: todos</option>
+                <option value="nao">Não iniciado</option>
+                <option value="andamento">Em andamento</option>
+                <option value="parado">Parado</option>
+                <option value="feito">Feito</option>
+              </select>
+            </div>
+            <button type="button" class="qd-btn qd-btn--sutil qd-restaurar" data-acao="restaurar" data-k="restaurar" title="Restaurar exemplo">
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4M4 3.8v3.4h3.4"/></svg><span class="qd-restaurar__txt">Restaurar<span class="qd-restaurar__mais"> exemplo</span></span>
+            </button>
+          </div>
+          <div class="qd-filtro-info" id="qd-filtro-info" hidden></div>
+
+          <div id="qd-painel-tabela" class="qd-vista" role="tabpanel" aria-labelledby="qd-aba-tabela" tabindex="-1"></div>
+          <div id="qd-painel-kanban" class="qd-vista" role="tabpanel" aria-labelledby="qd-aba-kanban" tabindex="-1" hidden></div>
+          <noscript><p class="qd-noscript">Ative o JavaScript para usar o quadro interativo.</p></noscript>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p id="qd-dica-alca" class="sr-only">Arraste a linha para movê-la, ou use Alt mais seta para cima ou para baixo. Enter abre o menu com Mover para e Excluir.</p>
+  <p id="qd-dica-card" class="sr-only">Arraste o cartão para outra coluna, ou use Alt mais seta para a esquerda ou para a direita. Enter abre a lista de colunas.</p>
+  <div id="qd-aviso" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="qd-toast" class="qd-toast" hidden>
+    <span class="qd-toast__msg"></span>
+    <button type="button" class="qd-toast__btn" data-acao="desfazer" data-k="desfazer" aria-keyshortcuts="Control+Z" title="Desfazer (Ctrl+Z)">Desfazer</button>
+    <button type="button" class="qd-toast__fechar" data-acao="fechar-toast" aria-label="Fechar aviso">
+      <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5.5 5.5 9 9M14.5 5.5l-9 9"/></svg>
+    </button>
+  </div>
+</section>

@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/sections/00-topo.css">
+  <link rel="stylesheet" href="css/sections/10-quadro.css">
+  <link rel="stylesheet" href="css/sections/20-controle.css">
 </head>
 <body>
   <!-- 00-topo -->
@@ -27,8 +29,202 @@
     </a>
   </div>
 </header>
+
+<!-- 10-quadro -->
+<section id="quadro" class="section quadro" aria-labelledby="quadro-titulo">
+  <div class="container container--xl">
+    <header class="quadro__cabecalho reveal">
+      <p class="eyebrow">Quadro de gerenciamento</p>
+      <h2 id="quadro-titulo" class="h2">Cada tarefa no lugar certo, à vista da equipe</h2>
+      <p class="lead quadro__lead">Um quadro de verdade para você experimentar: renomeie tarefas, distribua responsáveis, ajuste prazos e arraste itens entre grupos. As cores contam o andamento num relance — e tudo fica salvo neste navegador.</p>
+    </header>
+
+    <div class="quadro__palco">
+      <div class="qd-app">
+        <aside class="qd-lateral" aria-hidden="true">
+          <span class="qd-lateral__marca">
+            <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="6.5" fill="#6161ff"/><ellipse cx="16" cy="16" rx="13" ry="5.5" fill="none" stroke="#ff5ac4" stroke-width="2.2" transform="rotate(-28 16 16)"/><circle cx="27.3" cy="10" r="2.4" fill="#fdab3d"/></svg>
+          </span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><path d="M3.5 9.2 10 3.8l6.5 5.4V16a1 1 0 0 1-1 1H12v-4.2H8V17H4.5a1 1 0 0 1-1-1z"/></svg></span>
+          <span class="qd-lateral__ico is-ativo"><svg class="qd-ico" viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8.5h14M8 8.5V16"/></svg></span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><path d="M5.5 13.5V9a4.5 4.5 0 0 1 9 0v4.5l1.5 2h-12zM8.5 17.5h3"/></svg></span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><rect x="3" y="4.5" width="14" height="12.5" rx="2"/><path d="M3 8.5h14M7 3v3M13 3v3"/></svg></span>
+          <span class="qd-lateral__sep"></span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><circle cx="8" cy="7.5" r="2.8"/><path d="M3 16.5a5 5 0 0 1 10 0M13.2 5a2.6 2.6 0 0 1 0 5M14.5 12.2a4.6 4.6 0 0 1 2.7 4.3"/></svg></span>
+          <span class="qd-lateral__ico"><svg class="qd-ico" viewBox="0 0 20 20"><path d="M4 6.5h7M15 6.5h1M4 13.5h1.5M9.5 13.5H16"/><circle cx="13" cy="6.5" r="2"/><circle cx="7.5" cy="13.5" r="2"/></svg></span>
+        </aside>
+
+        <div class="qd-painel">
+          <div class="qd-topo">
+            <h3 class="qd-titulo"><button type="button" class="qd-titulo-btn" data-acao="editar-titulo" data-k="titulo" aria-label="Festival de oficinas, editar título do quadro">Festival de oficinas</button></h3>
+            <div class="qd-equipe" id="qd-equipe"></div>
+          </div>
+
+          <div class="qd-abas" role="tablist" aria-label="Visões do quadro">
+            <button type="button" role="tab" id="qd-aba-tabela" class="qd-aba" aria-selected="true" aria-controls="qd-painel-tabela" data-visao="tabela" data-k="aba:tabela">
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8.5h14M8 8.5V16"/></svg>Tabela
+            </button>
+            <button type="button" role="tab" id="qd-aba-kanban" class="qd-aba" aria-selected="false" aria-controls="qd-painel-kanban" data-visao="kanban" data-k="aba:kanban" tabindex="-1">
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="3" y="4" width="3.6" height="12" rx="1.2"/><rect x="8.2" y="4" width="3.6" height="8" rx="1.2"/><rect x="13.4" y="4" width="3.6" height="10" rx="1.2"/></svg>Kanban
+            </button>
+          </div>
+
+          <div class="qd-ferramentas" role="group" aria-label="Ferramentas do quadro">
+            <button type="button" class="qd-btn qd-btn--primario qd-nova" data-acao="nova-tarefa" data-k="nova-tarefa">
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4.5v11M4.5 10h11"/></svg>Nova tarefa
+            </button>
+            <div class="qd-campo-ico qd-busca">
+              <label for="qd-busca" class="sr-only">Buscar tarefas</label>
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="5.2"/><path d="m13 13 3.8 3.8"/></svg>
+              <input id="qd-busca" class="qd-input" type="search" placeholder="Buscar tarefa ou pessoa" autocomplete="off" data-k="busca">
+            </div>
+            <div class="qd-campo-ico qd-filtro">
+              <label for="qd-f-pessoa" class="sr-only">Filtrar por pessoa</label>
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="7.2" r="3"/><path d="M4.6 16.5a5.4 5.4 0 0 1 10.8 0"/></svg>
+              <select id="qd-f-pessoa" class="qd-select" data-k="f-pessoa">
+                <option value="">Pessoa: todas</option>
+              </select>
+            </div>
+            <div class="qd-campo-ico qd-filtro">
+              <label for="qd-f-status" class="sr-only">Filtrar por status</label>
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3.5 5h13l-5 6.2V16l-3-1.5v-3.3z"/></svg>
+              <select id="qd-f-status" class="qd-select" data-k="f-status">
+                <option value="">Status: todos</option>
+                <option value="nao">Não iniciado</option>
+                <option value="andamento">Em andamento</option>
+                <option value="parado">Parado</option>
+                <option value="feito">Feito</option>
+              </select>
+            </div>
+            <button type="button" class="qd-btn qd-btn--sutil qd-restaurar" data-acao="restaurar" data-k="restaurar" title="Restaurar exemplo">
+              <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4M4 3.8v3.4h3.4"/></svg><span class="qd-restaurar__txt">Restaurar<span class="qd-restaurar__mais"> exemplo</span></span>
+            </button>
+          </div>
+          <div class="qd-filtro-info" id="qd-filtro-info" hidden></div>
+
+          <div id="qd-painel-tabela" class="qd-vista" role="tabpanel" aria-labelledby="qd-aba-tabela" tabindex="-1"></div>
+          <div id="qd-painel-kanban" class="qd-vista" role="tabpanel" aria-labelledby="qd-aba-kanban" tabindex="-1" hidden></div>
+          <noscript><p class="qd-noscript">Ative o JavaScript para usar o quadro interativo.</p></noscript>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p id="qd-dica-alca" class="sr-only">Arraste a linha para movê-la, ou use Alt mais seta para cima ou para baixo. Enter abre o menu com Mover para e Excluir.</p>
+  <p id="qd-dica-card" class="sr-only">Arraste o cartão para outra coluna, ou use Alt mais seta para a esquerda ou para a direita. Enter abre a lista de colunas.</p>
+  <div id="qd-aviso" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="qd-toast" class="qd-toast" hidden>
+    <span class="qd-toast__msg"></span>
+    <button type="button" class="qd-toast__btn" data-acao="desfazer" data-k="desfazer" aria-keyshortcuts="Control+Z" title="Desfazer (Ctrl+Z)">Desfazer</button>
+    <button type="button" class="qd-toast__fechar" data-acao="fechar-toast" aria-label="Fechar aviso">
+      <svg class="qd-ico" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5.5 5.5 9 9M14.5 5.5l-9 9"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- 20-controle -->
+<section id="controle" class="section controle" aria-labelledby="controle-titulo">
+  <div class="container container--xl">
+    <h2 id="controle-titulo" class="controle__titulo reveal"><span>Quadros</span> <span>em ordem</span></h2>
+
+    <!-- Cada título é texto simples (<span class="controle__botao">). No mobile o
+         JS o troca por um <button> de acordeão; sem JS e em ≥768px tudo fica à mostra. -->
+    <div class="controle__lista reveal">
+      <div class="controle__item is-aberto">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M10 2.9H5.2A2.2 2.2 0 0 0 3 5.1v9.8a2.2 2.2 0 0 0 2.2 2.2h7.6a2.2 2.2 0 0 0 2.2-2.2v-4.7"/><path d="M6.2 9.6h4.2M6.2 13.4h5.4"/><path class="controle__icone-fino" d="M14.6 2.6v5.6M12.18 4l4.84 2.8M12.18 6.8l4.84-2.8"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-1">
+            <span class="controle__nome">Campos obrigatórios</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-1">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Escolha o que toda tarefa precisa trazer, como prazo, responsável e estimativa. Um card incompleto mostra na hora o que falta preencher.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M2.8 10S5.4 4.8 10 4.8 17.2 10 17.2 10 14.6 15.2 10 15.2 2.8 10 2.8 10Z"/><circle cx="10" cy="10" r="2.1"/><path d="M3.6 16.4 7 13M13 7l3.4-3.4"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-2">
+            <span class="controle__nome">Visões privadas</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-2">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Monte filtros, gráficos e listas só para você, sem mexer no que o time vê. Quando estiver tudo certo, publique a visão para o grupo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M3.6 7.4A7 7 0 1 1 3 10"/><path d="M3.2 3.8v3.8H7"/><path d="M10 6.2V10l2.6 1.8"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-3">
+            <span class="controle__nome">Histórico de cada tarefa</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-3">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Cada tarefa guarda sua linha do tempo: quem mudou o status, adiou o prazo ou trocou o responsável. Errou? Desfaça a edição em um clique.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M10 2.8v9.4"/><path d="M6.4 8.8 10 12.4l3.6-3.6"/><path d="M2.9 12.6v2.8c0 1 .8 1.8 1.8 1.8h10.6c1 0 1.8-.8 1.8-1.8v-2.8"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-4">
+            <span class="controle__nome">Exportação e backup</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-4">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Leve qualquer quadro para planilha ou CSV quando quiser. Cópias automáticas diárias guardam as versões anteriores por 90 dias.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M17 10a7 7 0 1 1-3.4-6"/><path d="M6.8 9.4l2.9 2.9 7.6-7.6"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-5">
+            <span class="controle__nome">Revisão antes do “Feito”</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-5">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">A tarefa só muda para “Feito” depois que o revisor indicado dá o aval. Bom para contratos, peças de campanha e tudo que pede um segundo olhar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><circle cx="6.8" cy="13.2" r="3.9"/><path d="M9.56 10.44 16.8 3.2"/><path d="M14.4 5.6l2 2"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-6">
+            <span class="controle__nome">Acesso por quadro</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-6">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Feche um quadro inteiro ou só um grupo de tarefas. Convidados de fora da empresa enxergam apenas as colunas que você liberar para eles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   <p class="study-note">Página de estudo de layout. Órbita é uma marca fictícia; textos, nomes e ilustrações são originais.</p>
   <script src="js/base.js" defer></script>
-  
+  <script src="js/sections/10-quadro.js" defer></script>
+  <script src="js/sections/20-controle.js" defer></script>
 </body>
 </html>
