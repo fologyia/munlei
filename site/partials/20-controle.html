@@ -1,0 +1,99 @@
+<section id="controle" class="section controle" aria-labelledby="controle-titulo">
+  <div class="container container--xl">
+    <h2 id="controle-titulo" class="controle__titulo reveal"><span>Quadros</span> <span>em ordem</span></h2>
+
+    <!-- Cada título é texto simples (<span class="controle__botao">). No mobile o
+         JS o troca por um <button> de acordeão; sem JS e em ≥768px tudo fica à mostra. -->
+    <div class="controle__lista reveal">
+      <div class="controle__item is-aberto">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M10 2.9H5.2A2.2 2.2 0 0 0 3 5.1v9.8a2.2 2.2 0 0 0 2.2 2.2h7.6a2.2 2.2 0 0 0 2.2-2.2v-4.7"/><path d="M6.2 9.6h4.2M6.2 13.4h5.4"/><path class="controle__icone-fino" d="M14.6 2.6v5.6M12.18 4l4.84 2.8M12.18 6.8l4.84-2.8"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-1">
+            <span class="controle__nome">Campos obrigatórios</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-1">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Escolha o que toda tarefa precisa trazer, como prazo, responsável e estimativa. Um card incompleto mostra na hora o que falta preencher.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M2.8 10S5.4 4.8 10 4.8 17.2 10 17.2 10 14.6 15.2 10 15.2 2.8 10 2.8 10Z"/><circle cx="10" cy="10" r="2.1"/><path d="M3.6 16.4 7 13M13 7l3.4-3.4"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-2">
+            <span class="controle__nome">Visões privadas</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-2">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Monte filtros, gráficos e listas só para você, sem mexer no que o time vê. Quando estiver tudo certo, publique a visão para o grupo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M3.6 7.4A7 7 0 1 1 3 10"/><path d="M3.2 3.8v3.8H7"/><path d="M10 6.2V10l2.6 1.8"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-3">
+            <span class="controle__nome">Histórico de cada tarefa</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-3">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Cada tarefa guarda sua linha do tempo: quem mudou o status, adiou o prazo ou trocou o responsável. Errou? Desfaça a edição em um clique.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M10 2.8v9.4"/><path d="M6.4 8.8 10 12.4l3.6-3.6"/><path d="M2.9 12.6v2.8c0 1 .8 1.8 1.8 1.8h10.6c1 0 1.8-.8 1.8-1.8v-2.8"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-4">
+            <span class="controle__nome">Exportação e backup</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-4">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Leve qualquer quadro para planilha ou CSV quando quiser. Cópias automáticas diárias guardam as versões anteriores por 90 dias.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><path d="M17 10a7 7 0 1 1-3.4-6"/><path d="M6.8 9.4l2.9 2.9 7.6-7.6"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-5">
+            <span class="controle__nome">Aprovação antes do “Feito”</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-5">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">A tarefa só muda para “Feito” depois que o revisor indicado dá o aval. Bom para contratos, peças de campanha e tudo que pede um segundo olhar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controle__item">
+        <svg class="controle__icone" viewBox="2 2 16 16" aria-hidden="true" focusable="false"><circle cx="6.8" cy="13.2" r="3.9"/><path d="M9.56 10.44 16.8 3.2"/><path d="M14.4 5.6l2 2"/></svg>
+        <h3 class="controle__cabeca">
+          <span class="controle__botao" id="controle-botao-6">
+            <span class="controle__nome">Acesso por quadro e grupo</span>
+            <span class="controle__sinal" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="11.3"/><path d="M7.75 12h8.5M12 7.75v8.5"/></svg></span>
+          </span>
+        </h3>
+        <div class="controle__painel" id="controle-painel-6">
+          <div class="controle__painel-dentro">
+            <p class="controle__texto">Feche um quadro inteiro ou só um grupo de tarefas. Convidados de fora da empresa enxergam apenas as colunas que você liberar para eles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
