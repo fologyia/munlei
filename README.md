@@ -56,3 +56,8 @@ repositório.
 O [estudo da seção Controle](docs/controle-responsivo.md) compara o layout da
 referência pública com o da Órbita. Ele inclui os comandos para repetir as
 medições de tipografia, grade e visibilidade por largura com o Chromium.
+
+O [estudo de fluxos de trabalho](docs/fluxos-com-rea.md) usa o REA para
+comparar a demonstração em desktop e celular. O script
+`scripts/capturar-layout-rea.py` reproduz as capturas de uma seção em larguras
+definidas, com DOM, árvore de acessibilidade e PNG por largura.
