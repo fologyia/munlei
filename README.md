@@ -50,3 +50,9 @@ Não copie o que é deles: logo, nome, ilustrações, fotos, vídeos e textos de
 marketing. Use textos próprios, uma marca fictícia e imagens de placeholder.
 Por isso `analise/` fica no `.gitignore` e as capturas brutas não vão para o
 repositório.
+
+## 3. Medir o layout responsivo
+
+O [estudo da seção Controle](docs/controle-responsivo.md) compara o layout da
+referência pública com o da Órbita. Ele inclui os comandos para repetir as
+medições de tipografia, grade e visibilidade por largura com o Chromium.
